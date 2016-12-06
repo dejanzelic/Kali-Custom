@@ -48,11 +48,4 @@ gsettings get org.gnome.desktop.screensaver lock-delay 'uint32 1800';
 #set ssh on boot
 systemctl enable ssh;
 
-#set ip6tables policy
-ip6tables -P INPUT DROP
-ip6tables -P FORWARD DROP
-ip6tables -P OUTPUT DROP
-ip6tables-save > /etc/ip6tables.rules
-echo "/sbin/ip6tables-restore < /etc/ip6tables.rules" >> /etc/rc.local
-
 
