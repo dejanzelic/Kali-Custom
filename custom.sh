@@ -48,4 +48,19 @@ gsettings get org.gnome.desktop.screensaver lock-delay 'uint32 1800';
 #set ssh on boot
 systemctl enable ssh;
 
+#Install Fish
+apt-get --assume-yes install fish
+chsh -s /usr/bin/fish
+mkdir -p ~/.config/fish
+echo "set -g -x PATH /usr/local/bin $PATH" > ~/.config/fish/config.fish
+fish -c fish_update_completions
+
+##Install fisher
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+
+##Install fzf
+fish -c "fisher fzf"
+
+##Install OMF
+curl -L http://get.oh-my.fish | fish
 
