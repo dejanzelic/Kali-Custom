@@ -64,3 +64,9 @@ fish -c "fisher fzf"
 ##Install OMF
 curl -L http://get.oh-my.fish | fish
 
+##Install Burp StartUp Script
+echo "[+] Installing burp start up script into ~/Resources"
+mkdir ~/Resources
+echo "#!/bin/bash
+java -jar -server -Xms512m -Xmx4g -XX:-DisableExplicitGC -XX:+UseTLAB -XX:+UseThreadPriorities -XX:+AggressiveOpts -XX:+UseFastAccessorMethods -XX:+UseLargePages -XX:+OptimizeStringConcat -XX:ReservedCodeCacheSize=96m -XX:+UseCodeCacheFlushing -XX:+UseG1GC -XX:UseSSE=4 -XX:+UseStringDeduplication burpsuite.jar" > ~/Resources/start_burp.sh
+chmod +x ~/Resources/start_burp.sh
